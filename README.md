@@ -1,28 +1,28 @@
-# CudaVision: High-Performance Image Filters
+# Parallel Image Filtering with CUDA Capstone Project
 
-A CUDA-powered parallel computing framework for accelerated image processing and computer vision applications
+A comprehensive implementation of parallel computing techniques for high-performance image processing using CUDA architecture
 
 ## Project Overview
 
-This project implements a high-performance image filtering system using CUDA and PyCUDA to demonstrate the advantages of GPU parallel processing over traditional CPU-based approaches. The framework achieves 3.5-4.2× performance improvement across three fundamental image operations: Gaussian blur, sharpening, and edge detection.
+This project demonstrates the practical application of GPU parallelism for image processing through a complete implementation of image filters in CUDA/PyCUDA. The system provides empirical evidence of performance advantages, achieving 3.5-4.2× acceleration over sequential CPU processing across three fundamental image operations.
 
 ## Core Capabilities
 
-- **Parallel Image Filters**: GPU-optimized implementations of Gaussian blur, sharpening, and edge detection
-- **Performance Benchmarking**: Comprehensive CPU vs GPU execution time analysis
-- **Command Line Interface**: Streamlined batch processing capabilities
-- **Multiple Filter Operations**: Support for blur, sharpen, and edge detection algorithms
-- **Detailed Analytics**: Complete timing breakdown and acceleration metrics
-- **Production-Ready Code**: Industry-standard practices with robust error handling
+- **Parallel Filter Implementation**: CUDA-optimized Gaussian blur, sharpening, and edge detection algorithms
+- **Performance Benchmarking**: Direct CPU vs GPU execution time comparison framework
+- **Command Line Interface**: Efficient batch processing interface
+- **Multiple Filter Operations**: Comprehensive support for blur, sharpen, and edge detection
+- **Performance Analytics**: Detailed timing metrics and acceleration ratios
+- **Production Code Standards**: Enterprise-grade implementation with comprehensive error handling
 
 ## Google Colab Quick Start
 
 ### Environment Configuration
 
-1. Launch a new Google Colab notebook
-2. Navigate to Runtime → Change runtime type
-3. Choose GPU as Hardware accelerator
-4. Confirm selection
+1. Create a new Google Colab notebook
+2. Access Runtime → Change runtime type
+3. Select GPU as Hardware accelerator
+4. Apply configuration
 
 ### System Verification
 
@@ -34,34 +34,34 @@ This project implements a high-performance image filtering system using CUDA and
 ### Project Setup
 
 ```bash
-!git clone https://github.com/NadG17/CudaVision-High-Performance-Image-Filters.git
-%cd /content/CudaVision-High-Performance-Image-Filters
+!git clone https://github.com/Ritviek/Parallel-Image-Filtering-with-CUDA-Capstone-Project.git
+%cd /content/Parallel-Image-Filtering-with-CUDA-Capstone-Project
 ```
 
-### Installation
+### Package Installation
 
 ```bash
 !pip install -r requirements.txt
 ```
 
-### Filter Execution Examples
+### Filter Processing Examples
 
-**Apply Gaussian Blur:**
+**Gaussian Blur Application:**
 ```bash
 !python main.py samples/landscape.jpg outputs/landscape_blur.jpg --filter blur
 ```
 
-**Image Sharpening:**
+**Image Sharpening Processing:**
 ```bash
 !python main.py samples/nature.jpg outputs/nature_sharpen.jpg --filter sharpen
 ```
 
-**Edge Detection Processing:**
+**Edge Detection Execution:**
 ```bash
 !python main.py samples/nature.jpg outputs/nature_edge.jpg --filter edge
 ```
 
-### Performance Analysis
+### Performance Evaluation
 
 ```bash
 !python main.py samples/landscape.jpg outputs/landscape_comparison.jpg --filter blur --compare-cpu --verbose
@@ -70,36 +70,36 @@ This project implements a high-performance image filtering system using CUDA and
 ### Results Visualization
 
 ```bash
-# Display output files
+# Display processed outputs
 !ls -la outputs/
 
-# Visual comparison
+# Comparative visualization
 from IPython.display import Image, display
 import matplotlib.pyplot as plt
 import cv2
 
-# Load and display images
-original_img = cv2.imread('samples/landscape.jpg')
-processed_img = cv2.imread('outputs/landscape_blur.jpg')
+# Load image pairs
+source_image = cv2.imread('samples/landscape.jpg')
+result_image = cv2.imread('outputs/landscape_blur.jpg')
 
 plt.figure(figsize=(15, 5))
 plt.subplot(1, 2, 1)
-plt.imshow(cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB))
-plt.title('Source Image')
+plt.imshow(cv2.cvtColor(source_image, cv2.COLOR_BGR2RGB))
+plt.title('Original Image')
 plt.axis('off')
 
 plt.subplot(1, 2, 2)
-plt.imshow(cv2.cvtColor(processed_img, cv2.COLOR_BGR2RGB))
-plt.title('GPU Accelerated (Blur)')
+plt.imshow(cv2.cvtColor(result_image, cv2.COLOR_BGR2RGB))
+plt.title('GPU Processed (Blur Filter)')
 plt.axis('off')
 plt.show()
 ```
 
 ## System Requirements
 
-- NVIDIA GPU supporting CUDA Compute Capability 3.0+
-- CUDA Toolkit 10.0 or newer (automatically available in Google Colab)
-- Recommended 2GB GPU memory minimum
+- NVIDIA GPU with CUDA Compute Capability 3.0 or higher
+- CUDA Toolkit 10.0 or later (pre-configured in Google Colab)
+- Minimum 2GB GPU memory recommended
 
 ## Required Packages
 
@@ -116,7 +116,7 @@ plt.show()
 python main.py input_image.jpg output_image.jpg --filter blur
 ```
 
-### Supported Filter Types
+### Available Filter Types
 
 - **blur**: 5x5 Gaussian blur convolution
 - **sharpen**: Image sharpening enhancement
@@ -177,7 +177,7 @@ Three specialized GPU kernels:
 ## Repository Organization
 
 ```
-CudaVision-High-Performance-Image-Filters/
+Parallel-Image-Filtering-with-CUDA-Capstone-Project/
 ├── main.py              # Primary application with CUDA kernels
 ├── README.md           # Project documentation
 ├── requirements.txt    # Python package dependencies
@@ -231,4 +231,13 @@ Resolution: Decrease image dimensions or restart environment
 ```
 Issue: Missing pycuda module
 Resolution: Execute !pip install pycuda
+```
+
+## Technical Implementation Details
+
+The project employs data-parallel computing principles to distribute image processing workloads across hundreds of GPU cores simultaneously. Each pixel operation is mapped to individual threads, enabling massive parallelism that significantly outperforms traditional sequential CPU processing approaches.
+
+## License & Acknowledgments
+
+This capstone project demonstrates practical GPU programming concepts for high-performance computing applications in image processing and computer vision.
 ```
