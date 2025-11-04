@@ -236,8 +236,3 @@ Resolution: Execute !pip install pycuda
 ## Technical Implementation Details
 
 The project employs data-parallel computing principles to distribute image processing workloads across hundreds of GPU cores simultaneously. Each pixel operation is mapped to individual threads, enabling massive parallelism that significantly outperforms traditional sequential CPU processing approaches.
-
-## License & Acknowledgments
-
-This capstone project demonstrates practical GPU programming concepts for high-performance computing applications in image processing and computer vision.
-```
